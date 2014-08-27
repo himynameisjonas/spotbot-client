@@ -27,6 +27,7 @@
     "express": "^4.1.1",
     "glob": "^3.2.9",
     "originate": "0.1.5",
-    "ember-cli-emberfire": "0.0.1"
+    "ember-cli-emberfire": "0.0.1",
+    "ember-cli-coffeescript": "0.0.5"
   }
 }
