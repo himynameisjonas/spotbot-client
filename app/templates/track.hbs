@@ -1,15 +1,15 @@
 <li class="media">
-  <div class="pull-left">
+  <div class="album-cover pull-left">
     <img class="media-object" style="max-width: 100px;" {{bind-attr src=track.imageUrl}}>
+    {{#if view.canEnqueue}}
+      <i class="enqueue fa fa-plus" {{action 'enqueue'}}></i>
+    {{/if}}
   </div>
   <div class="media-body">
-    <h4 class="media-heading">{{track.title}}</h4>
+    <h4 class="media-heading">{{track.title}} <small>{{track.formattedDuration}}</small></h4>
     <p>
       <strong>{{track.artistNames}}</strong><br/>
-      {{track.albumTitle}}
-    </p>
-    <p>
-      {{track.formattedDuration}}
+      {{track.albumTitle}}<br/>
     </p>
   </div>
 </li>

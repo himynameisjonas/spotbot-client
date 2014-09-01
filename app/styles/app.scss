@@ -13,3 +13,26 @@ body {
   margin-bottom: 0;
   vertical-align: middle;
 }
+
+.album-cover {
+  position: relative;
+  .enqueue {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    padding-top: 45%;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 20px;
+    cursor: pointer;
+  }
+  &:hover {
+    .enqueue {
+      display: block;
+    }
+  }
+}

@@ -3,7 +3,10 @@
 TrackController = Ember.ObjectController.extend
   needs: ['index', 'search']
   artistNames: (->
-    @get('artists').mapProperty('name')
+    if typeof(@get('artists.firstObject')) == "string"
+      @get('artists')
+    else
+      @get('artists').mapProperty('name')
   ).property('artists.[]')
 
   formattedDuration: (->
@@ -19,7 +22,7 @@ TrackController = Ember.ObjectController.extend
   ).property('name')
 
   imageUrl: (->
-    @get('image') || @get('album.images.firstObject.url')
+    @get('image') || @get('album.images')[1].url
   ).property('preview_url')
 
   actions:

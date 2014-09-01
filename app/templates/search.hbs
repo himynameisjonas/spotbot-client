@@ -1,5 +1,11 @@
-<ul>
-  {{#each track in controller itemController='track'}}
-    {{partial 'track'}}
-  {{/each}}
-</ul>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h3>Search result</h3>
+    <ul class="media-list">
+      {{#each track in controller itemController='track'}}
+        {{view 'track' canEnqueue=true}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
