@@ -4,7 +4,10 @@ ApplicationController = Ember.Controller.extend
   query: null
   actions:
     search: ->
-      @transitionToRoute 'search', query: @get('query')
+      if Ember.isEmpty @get('query')
+        @transitionToRoute 'index'
+      else
+        @transitionToRoute 'search', query: @get('query')
     play: ->
       Ember.$.ajax(url: 'http://office-robot.local:3030/player/start', type: 'PUT')
     pause: ->

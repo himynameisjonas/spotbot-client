@@ -4,6 +4,8 @@
     <ol class="media-list">
       {{#each track in controller itemController='track'}}
         {{view 'track'}}
+      {{else}}
+        <em>The queue is empty</em>
       {{/each}}
     </ol>
   </div>
