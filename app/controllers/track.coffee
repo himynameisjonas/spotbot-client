@@ -9,9 +9,9 @@ TrackController = Ember.ObjectController.extend
       @get('artists').mapProperty('name')
   ).property('artists.[]')
 
-  formattedDuration: (->
-    @get('duration') || @get('duration_ms')
-  ).property('duration')
+  duration: (->
+    @get('model.duration') || @get('duration_ms')
+  ).property('duration', 'duration_ms')
 
   title: (->
     @get('model.title') || @get('name')
