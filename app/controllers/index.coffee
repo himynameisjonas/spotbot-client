@@ -1,11 +1,9 @@
 `import Ember from 'ember'`
-`import User from 'spotbot-player/models/track'`
 
-IndexController = Ember.Controller.extend
-  needs: ['application']
-  ref: Ember.computed.alias 'controllers.application.ref'
-  currentTrack: (->
-    User.create ref: @get('ref').child('current_track')
-  ).property()
+IndexController = Ember.ArrayController.extend
+  actions:
+    add: (uri)->
+      console.log("add!!!111")
+      Ember.$.post "http://office-robot.local:3030/queue/tracks", uri: uri
 
 `export default IndexController`

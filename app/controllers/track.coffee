@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 TrackController = Ember.ObjectController.extend
-  needs: ['queue', 'search']
+  needs: ['index', 'search']
   artistNames: (->
     @get('artists').mapProperty('name')
   ).property('artists.[]')
@@ -21,6 +21,6 @@ TrackController = Ember.ObjectController.extend
   actions:
     enqueue: ->
       @get('controllers.search.content').removeObject(@get 'model')
-      @get('controllers.queue').send 'add', @get('uri')
+      @get('controllers.index').send 'add', @get('uri')
 
 `export default TrackController`

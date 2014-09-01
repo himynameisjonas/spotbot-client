@@ -1,17 +1,20 @@
 `import Ember from 'ember'`
 `import Queue from 'spotbot-player/models/queue'`
+`import Track from 'spotbot-player/models/track'`
+
 
 ApplicationRoute = Ember.Route.extend
   setupController: ->
     @_super()
-    ref = @controllerFor('application').get('ref')
-    @controllerFor('queue').set 'model', Queue.create ref: ref.child('queue')
+    ref = new Firebase('https://flower-spotify.firebaseio.com')
+    @controllerFor('index').set 'model', Queue.create ref: ref.child('queue')
+    @controllerFor('current-track').set 'model', Track.create ref: ref.child('current_track')
 
   renderTemplate: ->
     @render()
-    @render "queue",
-      controller: "queue"
-      outlet: "queue"
+    @render "current-track",
+      controller: "current-track"
+      outlet: "current-track"
       into: "application"
 
 `export default ApplicationRoute`

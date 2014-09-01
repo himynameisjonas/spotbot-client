@@ -1,5 +1,27 @@
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      {{link-to "Spotbot" "application" classNames="navbar-brand"}}
+    </div>
+
+    <div class="navbar-form navbar-left">
+      <button {{action 'play'}}class="btn btn-default"><i class="fa fa-play"></i></button>
+      <button {{action 'pause'}}class="btn btn-default"><i class="fa fa-pause"></i></button>
+      <button {{action 'next'}}class="btn btn-default"><i class="fa fa-step-forward"></i></button>
+      <button {{action 'random'}}class="btn btn-default"><i class="fa fa-random"></i></button>
+    </div>
+
+    {{outlet "current-track"}}
+
+    <div class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        {{input class="form-control" value=query placeholder="Search…" action='search'}}
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   {{outlet}}
-  {{outlet "queue"}}
 </div>
 
