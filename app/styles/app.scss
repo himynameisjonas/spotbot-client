@@ -14,8 +14,16 @@ body {
   vertical-align: middle;
 }
 
+.media.track {
+  margin-bottom: 10px;
+}
 .album-cover {
   position: relative;
+
+  img {
+    max-width: 80px;
+  }
+
   .enqueue {
     display: none;
 

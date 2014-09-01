@@ -1,6 +1,6 @@
-<li class="media">
+<li class="media track">
   <div class="album-cover pull-left">
-    <img class="media-object" style="max-width: 100px;" {{bind-attr src=track.imageUrl}}>
+    <img class="media-object" {{bind-attr src=track.imageUrl}}>
     {{#if view.canEnqueue}}
       <i class="enqueue fa fa-plus" {{action 'enqueue'}}></i>
     {{/if}}
