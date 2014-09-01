@@ -1,12 +1,13 @@
-<h3>Queue</h3>
+<h3>Search</h3>
+{{input value=query placeholder="Search for tracks…" action='search'}}
+
 <ul>
   {{#each track in controller itemController='track'}}
     <li>
       <img style="max-width: 50px;" {{bind-attr src=track.imageUrl}}>
-      {{track.artists}} - {{track.title}}
+      {{track.artistNames}} - {{track.title}}
       {{track.formattedDuration}}
+      <button {{action 'enqueue'}}>Enqueue</button>
     </li>
-  {{else}}
-    <em>Queue is empty</em>
   {{/each}}
 </ul>

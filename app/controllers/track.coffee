@@ -1,8 +1,26 @@
 `import Ember from 'ember'`
 
 TrackController = Ember.ObjectController.extend
+  needs: ['queue', 'search']
+  artistNames: (->
+    @get('artists').mapProperty('name')
+  ).property('artists.[]')
+
   formattedDuration: (->
-    @get('duration')
+    @get('duration') || @get('duration_ms')
   ).property('duration')
+
+  title: (->
+    @get('model.title') || @get('name')
+  ).property('name')
+
+  imageUrl: (->
+    @get('image') || @get('album.images.firstObject.url')
+  ).property('preview_url')
+
+  actions:
+    enqueue: ->
+      @get('controllers.search.content').removeObject(@get 'model')
+      @get('controllers.queue').send 'add', @get('uri')
 
 `export default TrackController`
