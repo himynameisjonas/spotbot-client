@@ -1,6 +1,8 @@
 /* global require, module */
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var pickFiles  = require('broccoli-static-compiler');
+var mergeTrees = require('broccoli-merge-trees');
 
 var app = new EmberApp();
 app.import('vendor/ember-firebase/ember-firebase.js');
@@ -18,4 +20,18 @@ app.import('vendor/ember-firebase/ember-firebase.js');
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-module.exports = app.toTree();
+var bootstrapDir = 'bower_components/bootstrap-sass-official/assets';
+
+// select bootstrap JavaScript components to include
+var bootstrapComponents = ['dropdown', 'alert'];
+
+for (var index in bootstrapComponents) {
+  app.import(bootstrapDir + '/javascripts/bootstrap/' + bootstrapComponents[index] + '.js');
+}
+
+var extraAssets = pickFiles(bootstrapDir + '/fonts/bootstrap', {
+  srcDir: '/',
+  destDir: '/assets/bootstrap'
+});
+
+module.exports = mergeTrees([app.toTree(), extraAssets]);

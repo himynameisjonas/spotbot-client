@@ -1,12 +1,16 @@
-<h3>Queue</h3>
-<ul>
-  {{#each track in controller itemController='track'}}
-    <li>
-      <img style="max-width: 50px;" {{bind-attr src=track.imageUrl}}>
-      {{track.artists}} - {{track.title}}
-      {{track.formattedDuration}}
-    </li>
-  {{else}}
-    <em>Queue is empty</em>
-  {{/each}}
-</ul>
+<div class="row">
+  <div class="col-xs-12">
+    <h3>Queue</h3>
+    <ul>
+      {{#each track in controller itemController='track'}}
+        <li>
+          <img style="max-width: 50px;" {{bind-attr src=track.imageUrl}}>
+          {{track.artists}} - {{track.title}}
+          {{track.formattedDuration}}
+        </li>
+      {{else}}
+        <em>Queue is empty</em>
+      {{/each}}
+    </ul>
+  </div>
+</div>

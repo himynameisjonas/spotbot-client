@@ -1,0 +1,15 @@
+// Bootstrap documentation: http://getbootstrap.com/getting-started/
+@import "bootstrap";
+
+// Compass documentation: http://compass-style.org
+@import "compass";
+
+body {
+  margin-top: 50px;
+}
+
+.navbar-form .form-group {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+}

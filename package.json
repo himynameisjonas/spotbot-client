@@ -29,6 +29,10 @@
     "ember-cli-coffeescript": "0.0.5",
     "ember-cli-qunit": "0.0.5",
     "express": "^4.8.5",
-    "glob": "^4.0.5"
+    "glob": "^4.0.5",
+    "ember-cli-compass-bootstrap": "0.0.5",
+    "broccoli-merge-trees": "^0.1.4",
+    "broccoli-static-compiler": "^0.1.4",
+    "broccoli-sass": "^0.2.0"
   }
 }
