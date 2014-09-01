@@ -14,6 +14,10 @@ TrackController = Ember.ObjectController.extend
     @get('model.title') || @get('name')
   ).property('name')
 
+  albumTitle: (->
+    @get('album.name')
+  ).property('name')
+
   imageUrl: (->
     @get('image') || @get('album.images.firstObject.url')
   ).property('preview_url')

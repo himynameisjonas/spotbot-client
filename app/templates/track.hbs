@@ -1,0 +1,15 @@
+<li class="media">
+  <div class="pull-left">
+    <img class="media-object" style="max-width: 100px;" {{bind-attr src=track.imageUrl}}>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">{{track.title}}</h4>
+    <p>
+      <strong>{{track.artistNames}}</strong><br/>
+      {{track.albumTitle}}
+    </p>
+    <p>
+      {{track.formattedDuration}}
+    </p>
+  </div>
+</li>

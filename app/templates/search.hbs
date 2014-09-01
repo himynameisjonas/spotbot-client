@@ -1,10 +1,5 @@
 <ul>
   {{#each track in controller itemController='track'}}
-    <li>
-      <img style="max-width: 50px;" {{bind-attr src=track.imageUrl}}>
-      {{track.artistNames}} - {{track.title}}
-      {{track.formattedDuration}}
-      <button {{action 'enqueue'}}>Enqueue</button>
-    </li>
+    {{partial 'track'}}
   {{/each}}
 </ul>
