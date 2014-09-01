@@ -33,15 +33,14 @@
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
 
-    <script>
-      window.SpotbotPlayerENV = {{ENV}};
-      window.EmberENV = window.SpotbotPlayerENV.EmberENV;
-    </script>
-    <script src="assets/test-support.js"></script>
     <script src="assets/vendor.js"></script>
+    <script src="assets/test-support.js"></script>
     <script src="assets/spotbot-player.js"></script>
     <script src="testem.js"></script>
     <script>
+      window.SpotbotPlayerENV = require('spotbot-player/config/environment')['default'];
+      window.EmberENV = window.SpotbotPlayerENV.EmberENV;
+
       require('spotbot-player/tests/test-helper');
     </script>
     <script src="assets/test-loader.js"></script>

@@ -14,13 +14,11 @@
     <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
   </head>
   <body>
-    <script>
-      window.SpotbotPlayerENV = {{ENV}};
-      window.EmberENV = window.SpotbotPlayerENV.EmberENV;
-    </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/spotbot-player.js"></script>
     <script>
+      window.SpotbotPlayerENV = require('spotbot-player/config/environment')['default'];
+      window.EmberENV = window.SpotbotPlayerENV.EmberENV;
       window.SpotbotPlayer = require('spotbot-player/app')['default'].create(SpotbotPlayerENV.APP);
     </script>
   </body>
