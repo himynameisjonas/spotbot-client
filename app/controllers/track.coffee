@@ -27,7 +27,7 @@ TrackController = Ember.ObjectController.extend
 
   actions:
     enqueue: ->
-      @get('controllers.search.content').removeObject(@get 'model')
+      @get('controllers.search.tracks').removeObject(@get 'model')
       @get('controllers.index').send 'add', @get('uri')
 
 `export default TrackController`

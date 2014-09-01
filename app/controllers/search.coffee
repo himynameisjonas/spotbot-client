@@ -1,6 +1,5 @@
 `import Ember from 'ember'`
 
-SearchController = Ember.ArrayController.extend
-  model: []
+SearchController = Ember.Controller.extend()
 
 `export default SearchController`
