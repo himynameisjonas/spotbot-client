@@ -1,0 +1,10 @@
+<h3>Queue</h3>
+<ul>
+  {{#each track in controller itemController='track'}}
+    <li>
+      <img style="max-width: 50px;" {{bind-attr src=track.image}}>
+      {{track.artists}} - {{track.title}}
+      {{track.formattedDuration}}
+    </li>
+  {{/each}}
+</ul>
