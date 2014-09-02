@@ -2,7 +2,7 @@
 
 SpotifyTrackComponent = Ember.Component.extend
   canEnqueue: false
-  classNameBindings: [":media", ":track", "track.enqueueing:enqueueing", "track.removing:removing"]
+  classNameBindings: [":media", ":track", "enqueueing:enqueueing", "removing:removing"]
   tagName: 'li'
   enqueueing: false
   removing: false

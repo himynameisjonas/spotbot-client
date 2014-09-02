@@ -30,7 +30,7 @@
             <h4 class="media-heading">{{album.name}} <small>{{album.releaseYear}}</small></h4>
             <p>
               <strong>{{album.artistNames}}</strong><br>
-              <a href="" {{action 'toggleTracks'}}>{{album.numberOfTracks}} tracks</a>
+              <a href="#" {{action 'toggleTracks'}}>{{album.numberOfTracks}} tracks</a>
             </p>
             {{#if album.showTracks}}
               {{#each track in album.tracks.items}}
