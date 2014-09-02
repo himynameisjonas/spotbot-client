@@ -25,6 +25,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.SPOTBOT_HOST = "http://localhost:3031"
+    ENV.FIREBASE_URL = "https://spotobot-dev.firebaseio.com"
   }
 
   if (environment === 'test') {
@@ -32,6 +33,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.FIREBASE_URL = "https://flower-spotify.firebaseio.com"
     ENV.SPOTBOT_HOST = "http://office-robot.local:3030"
   }
 
