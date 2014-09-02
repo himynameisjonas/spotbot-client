@@ -18,17 +18,17 @@ ApplicationController = Ember.Controller.extend
       else
         @transitionToRoute 'search', query: @get('query')
     play: ->
-      Ember.$.ajax(url: 'http://office-robot.local:3030/player/start', type: 'PUT')
+      Ember.$.ajax(url: "#{window.SpotbotPlayerENV.SPOTBOT_HOST}/player/start", type: 'PUT')
     pause: ->
-      Ember.$.ajax(url: 'http://office-robot.local:3030/player/stop', type: 'PUT')
+      Ember.$.ajax(url: "#{window.SpotbotPlayerENV.SPOTBOT_HOST}/player/stop", type: 'PUT')
     next: ->
-      Ember.$.ajax(url: 'http://office-robot.local:3030/player/next', type: 'PUT')
+      Ember.$.ajax(url: "#{window.SpotbotPlayerENV.SPOTBOT_HOST}/player/next", type: 'PUT')
     random: ->
       @set 'isChangingShuffle', true
       if @get('isShuffle')
-        Ember.$.ajax(url: 'http://office-robot.local:3030/playlist/shuffle', type: 'DELETE')
+        Ember.$.ajax(url: "#{window.SpotbotPlayerENV.SPOTBOT_HOST}/playlist/shuffle", type: 'DELETE')
 
       else
-        Ember.$.ajax(url: 'http://office-robot.local:3030/playlist/shuffle', type: 'PUT')
+        Ember.$.ajax(url: "#{window.SpotbotPlayerENV.SPOTBOT_HOST}/playlist/shuffle", type: 'PUT')
 
 `export default ApplicationController`

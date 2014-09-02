@@ -24,6 +24,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.SPOTBOT_HOST = "http://localhost:3031"
   }
 
   if (environment === 'test') {
@@ -31,7 +32,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.SPOTBOT_HOST = "http://office-robot.local:3030"
   }
 
   return ENV;

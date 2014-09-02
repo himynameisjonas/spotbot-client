@@ -5,8 +5,8 @@ IndexController = Ember.Controller.extend
   playlist: Ember.computed.alias 'controllers.application.playlist'
   actions:
     add: (uri)->
-      Ember.$.post "http://office-robot.local:3030/queue/tracks", uri: uri
+      Ember.$.post "#{window.SpotbotPlayerENV.SPOTBOT_HOST}/queue/tracks", uri: uri
     playlist: (uri)->
-      Ember.$.post "http://office-robot.local:3030/playlist", uri: uri
+      Ember.$.post "#{window.SpotbotPlayerENV.SPOTBOT_HOST}/playlist", uri: uri
 
 `export default IndexController`
