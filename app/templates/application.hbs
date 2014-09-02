@@ -11,7 +11,9 @@
           <button {{action 'play'}}class="btn btn-default"><i class="fa fa-play"></i></button>
           <button {{action 'pause'}}class="btn btn-default"><i class="fa fa-pause"></i></button>
           <button {{action 'next'}}class="btn btn-default"><i class="fa fa-step-forward"></i></button>
-          <button class="btn disabled btn-default"><i class="fa fa-random"></i></button>
+          <button {{action 'random'}} {{bind-attr class=":btn :btn-default isShuffle:active"}}>
+            <i {{bind-attr class=":fa isChangingShuffle:fa-spin isChangingShuffle:fa-spinner:fa-random"}}></i>
+          </button>
         </div>
       </div>
 

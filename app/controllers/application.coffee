@@ -2,6 +2,15 @@
 
 ApplicationController = Ember.Controller.extend
   query: null
+  isChangingShuffle: true
+  isShuffle: (->
+    @get('playlist.shuffle')
+  ).property('playlist.shuffle')
+
+  isShuffleObserver: (->
+    @set 'isChangingShuffle', false
+  ).observes('isShuffle')
+
   actions:
     search: ->
       if Ember.isEmpty @get('query')
@@ -15,6 +24,11 @@ ApplicationController = Ember.Controller.extend
     next: ->
       Ember.$.ajax(url: 'http://office-robot.local:3030/player/next', type: 'PUT')
     random: ->
-      console.log 'random'
+      @set 'isChangingShuffle', true
+      if @get('isShuffle')
+        Ember.$.ajax(url: 'http://office-robot.local:3030/playlist/shuffle', type: 'DELETE')
+
+      else
+        Ember.$.ajax(url: 'http://office-robot.local:3030/playlist/shuffle', type: 'PUT')
 
 `export default ApplicationController`
