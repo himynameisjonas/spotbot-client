@@ -4,6 +4,7 @@ AlbumController = Ember.ObjectController.extend
   needs: ['index', 'search']
   enqueueing: false
   removing: false
+  showTracks: false
 
   artistNames: (->
     @get('artists').mapProperty('name')
@@ -20,6 +21,9 @@ AlbumController = Ember.ObjectController.extend
   ).property('release_date')
 
   actions:
+    toggleTracks: ->
+      @toggleProperty 'showTracks'
+      return
     enqueue: ->
       return if @get('enqueueing')
       @set 'enqueueing', true
