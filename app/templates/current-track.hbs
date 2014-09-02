@@ -1,2 +1,8 @@
-<img class="pull-left" style="max-width: 50px;" {{bind-attr src=image}}>
-<p class="navbar-text">{{artists}} - {{title}}</p>
+<div class="row current-track">
+  <div class="col-xs-3 col-sm-2 image">
+    <img class="pull-right" {{bind-attr src=image}}>
+  </div>
+  <div class="col-xs-9 col-sm-10 title">
+    {{artists}} - {{title}}
+  </div>
+</div>

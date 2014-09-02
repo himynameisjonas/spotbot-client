@@ -1,25 +1,73 @@
 // Bootstrap documentation: http://getbootstrap.com/getting-started/
+@import "vendor/mnd-bootstrap/src/mnd-bootstrap.scss";
 @import "bootstrap";
 
 // Compass documentation: http://compass-style.org
 @import "compass";
 
-body {
-  margin-top: 50px;
-}
+#top-bar {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  left: 0px;
+  z-index: 1030;
+  overflow: hidden;
+  background: $brand-danger;
 
-.navbar-header {
+
+  @media (min-width: $screen-xs-max) {
+    padding-top: 10px;
+    height: 70px;
+  }
+  &, a {
+    color: #fff;
+  }
+
+  .row {
+    height: 50px;
+    background: $brand-danger;
+  }
+
+  .container > .row > [class*="col-"] {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
   img {
     max-width: 25px;
     margin-top: -2px;
   }
-}
-.navbar-form .form-group {
-  display: inline-block;
-  margin-bottom: 0;
-  vertical-align: middle;
+  .topbar-brand {
+    float: left;
+  }
+  .container > .row .topbar-form[class*="col-"] {
+    float: left;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .topbar-controls {
+    float: left;
+    margin: -7px 0 0 30px;
+  }
+  .current-track {
+    .text {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .image img {
+      padding-right: 5px;
+      max-width: 40px;
+      margin-top: -7px;
+    }
+  }
 }
 
+#content {
+  margin-top: 100px;
+  @media (max-width: $screen-xs-max) {
+    margin-top: 200px;
+  }
+}
 .media.track {
   margin-bottom: 10px;
 }
