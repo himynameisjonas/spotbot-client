@@ -11,6 +11,9 @@ ApplicationController = Ember.Controller.extend
     @set 'isChangingShuffle', false
   ).observes('isShuffle')
 
+  queryObserver: Ember.debouncedObserver 'query', 300, ->
+    @send 'search'
+
   actions:
     search: ->
       if Ember.isEmpty @get('query')
