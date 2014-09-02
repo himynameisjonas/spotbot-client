@@ -83,7 +83,7 @@
 
     position: absolute;
     top: 0;
-    padding-top: 45%;
+    padding-top: 35%;
     height: 100%;
     width: 100%;
     text-align: center;
@@ -92,9 +92,14 @@
     font-size: 20px;
     cursor: pointer;
   }
-  &:hover {
+  &:hover, &.enqueueing {
     .enqueue {
       display: block;
+    }
+  }
+  &.enqueueing {
+    .enqueue {
+      cursor: progress;
     }
   }
 }

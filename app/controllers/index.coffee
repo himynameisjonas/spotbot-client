@@ -6,7 +6,5 @@ IndexController = Ember.Controller.extend
   actions:
     add: (uri)->
       Ember.$.post "#{window.SpotbotPlayerENV.SPOTBOT_HOST}/queue/tracks", uri: uri
-    playlist: (uri)->
-      Ember.$.post "#{window.SpotbotPlayerENV.SPOTBOT_HOST}/playlist", uri: uri
 
 `export default IndexController`

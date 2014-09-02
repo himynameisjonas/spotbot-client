@@ -2,6 +2,7 @@
 
 AlbumController = Ember.ObjectController.extend
   needs: ['index', 'search']
+  enqueueing: false
 
   artistNames: (->
     @get('artists').mapProperty('name')
@@ -13,9 +14,10 @@ AlbumController = Ember.ObjectController.extend
 
   actions:
     enqueue: ->
-      @get('controllers.search.albums').removeObject(@get 'model')
-      @get('controllers.index').send 'playlist', @get('uri')
-
+      return if @get('enqueueing')
+      @set 'enqueueing', true
+      Ember.$.post("#{window.SpotbotPlayerENV.SPOTBOT_HOST}/playlist", uri: @get 'uri').then =>
+        @get('controllers.search.albums').removeObject(@get 'model')
 
 
 `export default AlbumController`
