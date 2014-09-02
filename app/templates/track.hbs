@@ -2,8 +2,8 @@
   <div class="album-cover pull-left">
     <img class="media-object" {{bind-attr src=track.imageUrl}}>
     {{#if view.canEnqueue}}
-      <div class="enqueue">
-        <i {{bind-attr class=":fa :fa-plus track.enqueueing:fa-spin"}} {{action 'enqueue'}}></i>
+      <div class="enqueue" {{action 'enqueue'}}>
+        <i {{bind-attr class=":fa :fa-plus track.enqueueing:fa-spin"}}></i>
       </div>
     {{/if}}
   </div>
