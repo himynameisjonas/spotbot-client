@@ -2,6 +2,9 @@
 
 TrackController = Ember.ObjectController.extend
   needs: ['index', 'search']
+  enqueueing: false
+  removing: false
+
   artistNames: (->
     if typeof(@get('artists.firstObject')) == "string"
       @get('artists')
@@ -27,7 +30,13 @@ TrackController = Ember.ObjectController.extend
 
   actions:
     enqueue: ->
-      @get('controllers.search.tracks').removeObject(@get 'model')
-      @get('controllers.index').send 'add', @get('uri')
+      return if @get('enqueueing')
+      @set 'enqueueing', true
+      Ember.$.post("#{window.SpotbotPlayerENV.SPOTBOT_HOST}/queue/tracks", uri: @get('uri')).then =>
+        @set 'removing', true
+        Ember.run.later @, (->
+          @get('controllers.search.tracks').removeObject(@get 'model')
+          ), 400
+
 
 `export default TrackController`
