@@ -8,6 +8,12 @@ body {
   margin-top: 50px;
 }
 
+.navbar-header {
+  img {
+    max-width: 25px;
+    margin-top: -2px;
+  }
+}
 .navbar-form .form-group {
   display: inline-block;
   margin-bottom: 0;
