@@ -10,6 +10,8 @@
     <ul class="media-list">
       {{#each track in tracks itemController='track'}}
         {{view 'track' canEnqueue=true}}
+      {{else}}
+        <em>No tracks found</em>
       {{/each}}
     </ul>
   </div>
@@ -32,6 +34,8 @@
             </p>
           </div>
         </li>
+      {{else}}
+        <em>No albums found</em>
       {{/each}}
     </ul>
   </div>
