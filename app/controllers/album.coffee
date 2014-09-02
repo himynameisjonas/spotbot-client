@@ -12,6 +12,12 @@ AlbumController = Ember.ObjectController.extend
     @get('images')[1].url
   ).property('images.[]')
 
+  numberOfTracks: Ember.computed.alias 'tracks.total'
+
+  releaseYear: (->
+    @get('release_date').substring(0,4);
+  ).property('release_date')
+
   actions:
     enqueue: ->
       return if @get('enqueueing')

@@ -25,9 +25,10 @@
             </div>
           </div>
           <div class="media-body">
-            <h4 class="media-heading">{{album.name}}</h4>
+            <h4 class="media-heading">{{album.name}} <small>{{album.releaseYear}}</small></h4>
             <p>
-              <strong>{{album.artistNames}}</strong>
+              <strong>{{album.artistNames}}</strong><br>
+              {{album.numberOfTracks}} tracks
             </p>
           </div>
         </li>
