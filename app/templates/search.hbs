@@ -21,7 +21,7 @@
           <div {{bind-attr class=":album-cover :pull-left album.enqueueing:enqueueing"}}>
             <img class="media-object" {{bind-attr src=album.imageUrl}}>
             <div class="enqueue">
-              <i {{bind-attr class=":fa album.enqueueing:fa-spinner:fa-plus album.enqueueing:fa-spin"}} {{action 'enqueue'}}></i>
+              <i {{bind-attr class=":fa :fa-plus album.enqueueing:fa-spin"}} {{action 'enqueue'}}></i>
             </div>
           </div>
           <div class="media-body">
