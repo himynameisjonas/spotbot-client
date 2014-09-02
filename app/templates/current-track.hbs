@@ -3,6 +3,11 @@
     <img class="pull-right" {{bind-attr src=image}}>
   </div>
   <div class="col-xs-9 col-sm-10 title">
-    {{artists}} - {{title}}
+
+    {{#if artists}}
+      {{artists}} - {{title}}
+    {{else}}
+      <em>No track playing</em>
+    {{/if}}
   </div>
 </div>
