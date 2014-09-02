@@ -8,8 +8,8 @@
   <div class="col-xs-12 col-sm-6">
     <h4>Tracks</h4>
     <ul class="media-list">
-      {{#each track in tracks itemController='track'}}
-        {{view 'track' canEnqueue=true}}
+      {{#each track in tracks}}
+        {{spotify-track track=track collection=tracks canEnqueue=true}}
       {{else}}
         <em>No tracks found</em>
       {{/each}}

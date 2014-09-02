@@ -2,8 +2,8 @@
   <div class="col-xs-12 col-sm-6">
     <h3>Queue</h3>
     <ol class="media-list">
-      {{#each track in queue itemController='track'}}
-        {{view 'track'}}
+      {{#each track in queue}}
+        {{spotify-track track=track}}
       {{else}}
         <em>The queue is empty</em>
       {{/each}}
@@ -12,8 +12,8 @@
   <div class="col-xs-12 col-sm-6">
     <h3>Playlist/Album <small>{{playlist.name}}</small></h3>
     <ol class="media-list">
-      {{#each track in playlist.tracks itemController='track'}}
-        {{view 'track'}}
+      {{#each track in playlist.tracks}}
+        {{spotify-track track=track}}
       {{/each}}
     </ol>
   </div>
