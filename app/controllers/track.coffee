@@ -25,7 +25,12 @@ TrackController = Ember.ObjectController.extend
   ).property('name')
 
   imageUrl: (->
-    @get('image') || @get('album.images')[1].url
+    if Ember.isEmpty @get('image')
+      images = @get('album.images')
+      image = images[1].url unless Ember.isEmpty @get 'album.images'
+    else
+      image = @get('image')
+    image || "/empty.jpg"
   ).property('preview_url')
 
   actions:

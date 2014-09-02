@@ -10,7 +10,7 @@ AlbumController = Ember.ObjectController.extend
   ).property('artists.[]')
 
   imageUrl: (->
-    @get('images')[1].url
+    if Ember.isEmpty @get('images') then "/empty.jpg" else @get('images')[1].url
   ).property('images.[]')
 
   numberOfTracks: Ember.computed.alias 'tracks.total'
