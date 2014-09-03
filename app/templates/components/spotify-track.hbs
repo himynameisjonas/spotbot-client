@@ -1,7 +1,7 @@
-<div class="album-cover pull-left">
+<div class="album-cover pull-left" {{action 'enqueue'}}>
   <img class="media-object" {{bind-attr src=imageUrl}}>
   {{#if canEnqueue}}
-    <div class="enqueue" {{action 'enqueue'}}>
+    <div class="enqueue">
       <i {{bind-attr class=":fa :fa-plus enqueueing:fa-spin"}}></i>
     </div>
   {{/if}}

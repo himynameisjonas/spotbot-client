@@ -117,6 +117,13 @@
       display: block;
     }
   }
+  @media (max-width: $screen-xs-max) {
+    .enqueue {
+      background: rgba(0, 0, 0, 0.5);
+      display: block;
+    }
+  }
+
   &.enqueueing {
     .enqueue {
       cursor: progress;
