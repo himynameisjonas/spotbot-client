@@ -1,6 +1,8 @@
 // Bootstrap documentation: http://getbootstrap.com/getting-started/
-@import "vendor/mnd-bootstrap/src/mnd-bootstrap.scss";
+// @import "vendor/mnd-bootstrap/src/mnd-bootstrap.scss";
+@import "variables";
 @import "bootstrap";
+@import "bootswatch";
 
 // Compass documentation: http://compass-style.org
 @import "compass";
@@ -12,7 +14,7 @@
   left: 0px;
   z-index: 1030;
   overflow: hidden;
-  background: $brand-danger;
+  background: $navbar-default-bg;
 
 
   @media (min-width: $screen-xs-max) {
@@ -20,12 +22,12 @@
     height: 70px;
   }
   &, a {
-    color: #fff;
+    color: $navbar-default-color;
   }
 
   .row {
     height: 50px;
-    background: $brand-danger;
+    background: $navbar-default-bg;
   }
 
   .container > .row > [class*="col-"] {
@@ -46,7 +48,7 @@
   }
   .topbar-controls {
     float: left;
-    margin: -7px 0 0 30px;
+    margin: -8px 0 0 30px;
   }
   .current-track {
     .title {
@@ -70,7 +72,6 @@
 }
 .media {
   margin-bottom: 10px;
-
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
