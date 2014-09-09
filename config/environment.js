@@ -33,8 +33,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.FIREBASE_URL = "https://flower-spotify.firebaseio.com"
-    ENV.SPOTBOT_HOST = "http://office-robot.local:3030"
+    ENV.FIREBASE_URL = process.env.FIREBASE_URL
+    ENV.SPOTBOT_HOST = process.env.SPOTBOT_HOST
   }
 
   return ENV;
