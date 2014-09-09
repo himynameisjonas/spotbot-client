@@ -31,6 +31,17 @@
 </div>
 
 <div id="content" class="container">
+  {{#if ajaxError}}
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert alert-warning" role="alert">
+          <button {{action 'closeAlert'}} type="button" class="close">&times;</button>
+          <strong>Sorry!</strong> Could not connect to the player.
+        </div>
+      </div>
+    </div>
+  {{/if}}
+
   {{outlet}}
 </div>
 

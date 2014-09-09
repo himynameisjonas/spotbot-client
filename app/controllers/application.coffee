@@ -1,11 +1,16 @@
 `import Ember from 'ember'`
 
 ApplicationController = Ember.Controller.extend
+  ajaxError: false
   query: null
   isChangingShuffle: true
   isShuffle: (->
     @get('playlist.shuffle')
   ).property('playlist.shuffle')
+
+  init: ->
+    Ember.$(document).ajaxError (e, xhr, options, thrownError) =>
+      @set('ajaxError', true)
 
   isShuffleObserver: (->
     @set 'isChangingShuffle', false
@@ -33,5 +38,6 @@ ApplicationController = Ember.Controller.extend
 
       else
         Ember.$.ajax(url: "#{window.SpotbotPlayerENV.SPOTBOT_HOST}/playlist/shuffle", type: 'PUT')
-
+    closeAlert: ->
+      @set('ajaxError', false)
 `export default ApplicationController`
