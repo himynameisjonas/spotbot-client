@@ -26,18 +26,18 @@ ApplicationController = Ember.Controller.extend
       else
         @transitionToRoute 'search', query: @get('query')
     play: ->
-      Ember.$.ajax(url: "#{window.SpotbotPlayerENV.SPOTBOT_HOST}/player/start", type: 'PUT')
+      Ember.$.ajax(url: "#{window.SpotbotClientENV.SPOTBOT_HOST}/player/start", type: 'PUT')
     pause: ->
-      Ember.$.ajax(url: "#{window.SpotbotPlayerENV.SPOTBOT_HOST}/player/stop", type: 'PUT')
+      Ember.$.ajax(url: "#{window.SpotbotClientENV.SPOTBOT_HOST}/player/stop", type: 'PUT')
     next: ->
-      Ember.$.ajax(url: "#{window.SpotbotPlayerENV.SPOTBOT_HOST}/player/next", type: 'PUT')
+      Ember.$.ajax(url: "#{window.SpotbotClientENV.SPOTBOT_HOST}/player/next", type: 'PUT')
     random: ->
       @set 'isChangingShuffle', true
       if @get('isShuffle')
-        Ember.$.ajax(url: "#{window.SpotbotPlayerENV.SPOTBOT_HOST}/playlist/shuffle", type: 'DELETE')
+        Ember.$.ajax(url: "#{window.SpotbotClientENV.SPOTBOT_HOST}/playlist/shuffle", type: 'DELETE')
 
       else
-        Ember.$.ajax(url: "#{window.SpotbotPlayerENV.SPOTBOT_HOST}/playlist/shuffle", type: 'PUT')
+        Ember.$.ajax(url: "#{window.SpotbotClientENV.SPOTBOT_HOST}/playlist/shuffle", type: 'PUT')
     closeAlert: ->
       @set('ajaxError', false)
 `export default ApplicationController`

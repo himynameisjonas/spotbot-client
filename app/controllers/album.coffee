@@ -27,7 +27,7 @@ AlbumController = Ember.ObjectController.extend
     enqueue: ->
       return if @get('enqueueing')
       @set 'enqueueing', true
-      Ember.$.post("#{window.SpotbotPlayerENV.SPOTBOT_HOST}/playlist", uri: @get 'uri').then =>
+      Ember.$.post("#{window.SpotbotClientENV.SPOTBOT_HOST}/playlist", uri: @get 'uri').then =>
         @set 'removing', true
         Ember.run.later @, (->
           @get('controllers.search.albums').removeObject(@get 'model')

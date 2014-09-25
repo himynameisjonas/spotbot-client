@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SpotbotPlayer</title>
+    <title>SpotbotClient</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,9 +22,9 @@
     <script src="assets/vendor.js"></script>
     <script src="assets/spotbot-player.js"></script>
     <script>
-      window.SpotbotPlayerENV = require('spotbot-player/config/environment')['default'];
-      window.EmberENV = window.SpotbotPlayerENV.EmberENV;
-      window.SpotbotPlayer = require('spotbot-player/app')['default'].create(SpotbotPlayerENV.APP);
+      window.SpotbotClientENV = require('spotbot-player/config/environment')['default'];
+      window.EmberENV = window.SpotbotClientENV.EmberENV;
+      window.SpotbotClient = require('spotbot-player/app')['default'].create(SpotbotClientENV.APP);
     </script>
   </body>
 </html>

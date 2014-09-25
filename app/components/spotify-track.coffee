@@ -41,7 +41,7 @@ SpotifyTrackComponent = Ember.Component.extend
     enqueue: ->
       return if @get('enqueueing') or not @get('canEnqueue')
       @set 'enqueueing', true
-      Ember.$.post("#{window.SpotbotPlayerENV.SPOTBOT_HOST}/queue/tracks", uri: @get('track.uri')).then =>
+      Ember.$.post("#{window.SpotbotClientENV.SPOTBOT_HOST}/queue/tracks", uri: @get('track.uri')).then =>
         @set 'removing', true
         Ember.run.later @, (->
           @get('collection').removeObject(@get 'track')
