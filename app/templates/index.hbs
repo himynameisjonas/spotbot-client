@@ -10,7 +10,10 @@
     </ol>
   </div>
   <div class="col-xs-12 col-sm-6">
-    <h3>Playlist/Album <small>{{playlist.name}}</small></h3>
+    <h3>Playlist/Album <small>{{playlist.name}} (<a href="" {{action 'togglePlaylistForm' }}>Change playlist</a>)</small></h3>
+    {{#if showPlaylistForm }}
+      {{input class="form-control" action='changePlaylist' value=playlistUri placeholder="Paste a playlist uri"}}
+    {{/if}}
     <ol class="media-list">
       {{#each track in playlist.tracks}}
         {{spotify-track track=track}}
