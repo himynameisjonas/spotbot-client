@@ -22,7 +22,7 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src': "'self'",
       'font-src': "'self'",
-      'connect-src': "'self' wss://*.firebaseio.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://api.spotify.com",
       'img-src': "'self'",
       'style-src': "'self'",
       'media-src': "'self'"
