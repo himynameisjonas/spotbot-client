@@ -24,7 +24,9 @@ export default Ember.Component.extend({
 
   actions: {
     enqueue: function(){
-      this.store.createRecord("queued-track", {uri: this.get("data.uri")}).save();
+      this.store.createRecord("queued-track", {uri: this.get("data.uri")}).save().then(()=>{
+        this.destroy();
+      });
     },
   }
 });
