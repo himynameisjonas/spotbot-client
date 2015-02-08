@@ -1,6 +1,7 @@
 section.queue,
 section.tracks,
-section.albums, {
+section.albums,
+section.playlist, {
   @include span-columns(6);
 
   ol {

@@ -1,8 +1,14 @@
 <section class="queue">
   <h1>Queue</h1>
   <ol>
-  {{#each track in controller}}
+  {{#each track in queue}}
     {{spotify-track data=track.spotifyData}}
   {{/each}}
   </ol>
 </section>
+
+<section class="playlist">
+  <h1>Playlist/Album</h1>
+  {{spotify-playlist data=playlist}}
+</section>
+

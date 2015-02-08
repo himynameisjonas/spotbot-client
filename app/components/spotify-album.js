@@ -1,8 +1,14 @@
 import Ember from 'ember';
+import adapter from 'spotbot-client/adapters/application';
 
 export default Ember.Component.extend({
   tagName: "li",
   name: Ember.computed.alias("data.name"),
+  uri: Ember.computed.alias("data.uri"),
+  style: function() {
+    return `background-image: url(${ this.get("image")})`;
+  }.property("image"),
+
   artists: function(){
     if (this.get("data.artists")) {
       return this.get("data.artists").mapProperty("name");
@@ -24,4 +30,13 @@ export default Ember.Component.extend({
     }
   }.property('data.images.@each.url'),
 
+  ref: function(){
+    return this.store.adapterFor("application").get("_ref");
+  }.property("store"),
+
+  actions: {
+    enqueue: function(){
+      this.get("ref").child("playlist/uri").set(this.get("uri"))
+    }
+  }
 });
