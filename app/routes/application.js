@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  setupController: function(controller, model){
+  setupController: function(){
     this.controllerFor("index").set("model", this.store.findAll("queued-track"));
   }
 });
