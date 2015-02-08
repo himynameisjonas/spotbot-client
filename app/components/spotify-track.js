@@ -4,6 +4,9 @@ export default Ember.Component.extend({
   tagName: "li",
   name: Ember.computed.alias("data.name"),
   duration: Ember.computed.alias("data.duration_ms"),
+  style: function() {
+    return `background-image: url(${ this.get("image")})`;
+  }.property("image"),
 
   artists: function(){
     if (this.get("data.artists")) {
@@ -18,4 +21,10 @@ export default Ember.Component.extend({
       return this.get("data.album.images")[1].url;
     }
   }.property('data.album.images.@each.url'),
+
+  actions: {
+    enqueue: function(){
+      this.store.createRecord("queued-track", {uri: this.get("data.uri")}).save();
+    },
+  }
 });
