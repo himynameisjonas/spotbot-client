@@ -6,6 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route("search", {path: "/search/:query"});
 });
 
 export default Router;

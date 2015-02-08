@@ -1,0 +1,17 @@
+<section class="tracks">
+  <h1>Tracks</h1>
+  <ol>
+  {{#each track in tracks}}
+    {{spotify-track data=track}}
+  {{/each}}
+  </ol>
+</section>
+
+<section class="albums">
+  <h1>Albums</h1>
+  <ol>
+  {{#each album in albums}}
+    {{spotify-album data=album}}
+  {{/each}}
+  </ol>
+</section>

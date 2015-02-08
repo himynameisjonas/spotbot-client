@@ -5,7 +5,11 @@ export default Ember.Controller.extend({
 
   actions: {
     search: function(){
-      console.log(this.get("query"))
+      if (Ember.isEmpty(this.get("query"))) {
+        this.transitionToRoute("application");
+      } else {
+        this.transitionToRoute("search", {query: this.get("query")});
+      }
     }
   }
 });
