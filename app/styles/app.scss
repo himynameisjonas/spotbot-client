@@ -1,0 +1,15 @@
+@import "bourbon";
+@import "neat";
+@import "base/base";
+
+@import "includes/header";
+@import "includes/index";
+
+body {
+  margin: 0;
+}
+
+#container {
+  @include outer-container;
+  margin-top: 20px;
+}

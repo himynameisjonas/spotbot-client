@@ -1,6 +1,16 @@
-<h1>queue</h1>
-<ol>
-{{#each track in controller}}
-  <li>{{track.artists}} – {{track.name}}</li>
-{{/each}}
-</ol>
+<section class="queue">
+  <h1>Queue</h1>
+  <ol>
+  {{#each track in controller}}
+    <li>
+      <img {{bind-attr src="track.image"}}>
+      <div class="info">
+        <strong>{{track.name}}</strong>
+        <small>{{seconds-to-time track.duration}}</small>
+        <br>
+        {{track.artists}}
+      </div>
+    </li>
+  {{/each}}
+  </ol>
+</section>
