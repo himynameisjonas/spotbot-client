@@ -2,15 +2,7 @@
   <h1>Queue</h1>
   <ol>
   {{#each track in controller}}
-    <li>
-      <img {{bind-attr src="track.image"}}>
-      <div class="info">
-        <strong>{{track.name}}</strong>
-        <small>{{seconds-to-time track.duration}}</small>
-        <br>
-        {{track.artists}}
-      </div>
-    </li>
+    {{spotify-track data=track.spotifyData}}
   {{/each}}
   </ol>
 </section>
