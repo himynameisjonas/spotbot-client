@@ -6,12 +6,12 @@ export function secondsToTime(input) {
   var seconds = Math.floor(input - (minutes * 60));
 
   if(minutes < 10){
-    minutes = `0${minutes}`
+    minutes = `0${minutes}`;
   }
   if(seconds < 10){
-    seconds = `0${seconds}`
+    seconds = `0${seconds}`;
   }
-  return `${minutes}:${seconds}`
+  return `${minutes}:${seconds}`;
 }
 
 export default Ember.Handlebars.makeBoundHelper(secondsToTime);

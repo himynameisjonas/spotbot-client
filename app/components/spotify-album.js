@@ -1,5 +1,4 @@
-import Ember from 'ember';
-import adapter from 'spotbot-client/adapters/application';
+import Ember from "ember";
 
 export default Ember.Component.extend({
   tagName: "li",
@@ -28,7 +27,7 @@ export default Ember.Component.extend({
     } else {
       return this.get("data.images")[1].url;
     }
-  }.property('data.images.@each.url'),
+  }.property("data.images.@each.url"),
 
   ref: function(){
     return this.store.adapterFor("application").get("_ref");
@@ -36,7 +35,7 @@ export default Ember.Component.extend({
 
   actions: {
     enqueue: function(){
-      this.get("ref").child("playlist/uri").set(this.get("uri"))
+      this.get("ref").child("playlist/uri").set(this.get("uri"));
     }
   }
 });
