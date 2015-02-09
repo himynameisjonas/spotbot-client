@@ -14,3 +14,20 @@ body {
   @include outer-container;
   margin-top: 20px;
 }
+
+#footer {
+  text-align: center;
+  margin: $base-spacing;
+
+  em {
+    span {
+      display: none;
+    }
+    &:after {
+      content: "\f442";
+      color: #c00133;
+      font-family: "Ionicons";
+      font-style: normal;
+    }
+  }
+}
