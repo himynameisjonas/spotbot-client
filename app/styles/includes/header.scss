@@ -42,6 +42,37 @@ header.navigation {
     z-index: 9999;
   }
 
+  .current-track {
+    float: left;
+    max-height: $navigation-height;
+    padding-top: $navigation-padding;
+    padding-left: $navigation-padding * 5;
+    padding-right: 2em;
+    color: $navigation-color;
+    white-space: nowrap;
+
+    small {
+      display: none;
+    }
+
+    br {
+      display: none;
+    }
+
+    strong {
+      &:after {
+        content: " – ";
+        font-weight: normal;
+      }
+    }
+
+    .hover-tile-outer {
+      margin-top: -2px;
+      height: 33px;
+      width: 33px;
+    }
+  }
+
   .logo {
     float: left;
     max-height: $navigation-height;
@@ -117,6 +148,7 @@ header.navigation {
       float: left;
       font-size: 0.8em;
       margin-top: 1em;
+      margin-left: 2px;
       padding: 0.75em 1em;
       text-transform: uppercase;
     }

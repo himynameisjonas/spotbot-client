@@ -3,6 +3,8 @@ import Ember from "ember";
 export default Ember.Controller.extend({
   query: null,
   playing: false,
+  currentTrackUri: null,
+  currentTrackData: {},
 
   init: function(){
     this.get("playingRef").on("value", (data)=>{
@@ -12,7 +14,21 @@ export default Ember.Controller.extend({
         this.set("playing", false);
       }
     });
+
+    this.get("ref").child("player/current_track").on("value", (data)=>{
+      this.set("currentTrackUri", data.val());
+    });
   },
+
+  spotifyId: function(){
+    return this.get("currentTrackUri").split(":").slice(-1)[0];
+  }.property("currentTrackUri"),
+
+  fetchSpotifyData: function(){
+    Ember.$.get("https://api.spotify.com/v1/tracks/" + this.get("spotifyId")).then((data)=> {
+      this.set("currentTrackData", data);
+    });
+  }.observes("currentTrackUri"),
 
   ref: function(){
     return this.store.adapterFor("application").get("_ref");
