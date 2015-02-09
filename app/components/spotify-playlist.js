@@ -3,6 +3,8 @@ import Ember from "ember";
 export default Ember.Component.extend({
   tracksData: [],
   newPlaylistUri: null,
+  name: Ember.computed.alias("data.name"),
+  uri: Ember.computed.alias("data.uri"),
 
   fetchSpotifyData: function(){
     var array = this.get("spotifyIds");
@@ -14,7 +16,6 @@ export default Ember.Component.extend({
       });
     }
   }.observes("data.tracks.[]"),
-
 
   spotifyIds: function(){
     return this.get("data.tracks").map(function(item){
