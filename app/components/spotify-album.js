@@ -10,7 +10,9 @@ export default Ember.Component.extend({
 
   artists: function(){
     if (this.get("data.artists")) {
-      return this.get("data.artists").mapProperty("name");
+      return this.get("data.artists").map(function(artist){
+        return {name: artist.name, search: `artist:${artist.name}`};
+      });
     }
   }.property("data.artists"),
 

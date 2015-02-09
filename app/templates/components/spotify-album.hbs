@@ -10,5 +10,9 @@
   <strong>{{name}}</strong>
   <small>{{released}}</small>
   <br>
-  {{artists}}
+  {{#each artist in artists}}
+    {{#link-to "search" artist.search}}
+      {{artist.name}}
+    {{/link-to}}
+  {{/each}}
 </div>

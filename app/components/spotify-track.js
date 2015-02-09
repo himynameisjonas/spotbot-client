@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Component.extend({
   tagName: "li",
@@ -12,7 +12,9 @@ export default Ember.Component.extend({
 
   artists: function(){
     if (this.get("data.artists")) {
-      return this.get("data.artists").mapProperty("name");
+      return this.get("data.artists").map(function(artist){
+        return {name: artist.name, search: `artist:${artist.name}`};
+      });
     }
   }.property("data.artists"),
 
@@ -22,7 +24,7 @@ export default Ember.Component.extend({
     } else {
       return this.get("data.album.images")[1].url;
     }
-  }.property('data.album.images.@each.url'),
+  }.property("data.album.images.@each.url"),
 
   actions: {
     enqueue: function(){

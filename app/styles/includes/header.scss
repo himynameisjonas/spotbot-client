@@ -59,6 +59,10 @@ header.navigation {
       display: none;
     }
 
+    a {
+      color: inherit;
+    }
+
     strong {
       &:after {
         content: " – ";
