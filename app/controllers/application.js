@@ -22,6 +22,10 @@ export default Ember.Controller.extend({
     return this.get("ref").child("player/playing");
   }.property("ref"),
 
+  queryObserver: Ember.debouncedObserver(function(){
+    this.send("search");
+  }, "query", 300),
+
   actions: {
     search: function(){
       if (Ember.isEmpty(this.get("query"))) {
