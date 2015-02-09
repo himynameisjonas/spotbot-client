@@ -1,10 +1,12 @@
 <div class="hover-tile-outer" {{bind-attr style="style"}} {{action "enqueue"}}>
-  <div class="hover-tile-container">
-    <div class="hover-tile hover-tile-visible"></div>
-    <div class="hover-tile hover-tile-hidden">
-      <h4>Add to Queue</h4>
+  {{#if queueable}}
+    <div class="hover-tile-container">
+      <div class="hover-tile hover-tile-visible"></div>
+      <div class="hover-tile hover-tile-hidden">
+        <h4>Add to Queue</h4>
+      </div>
     </div>
-  </div>
+  {{/if}}
 </div>
 <div class="info">
   <strong>{{name}}</strong>

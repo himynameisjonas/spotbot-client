@@ -2,7 +2,7 @@
   <h1>Queue</h1>
   <ol>
   {{#each track in queue}}
-    {{spotify-track data=track.spotifyData}}
+    {{spotify-track data=track.spotifyData queueable=false}}
   {{/each}}
   </ol>
 </section>

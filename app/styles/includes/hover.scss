@@ -21,7 +21,6 @@
   background-size: cover;
   background-color: beige;
   border: 1px solid $base-border-color;
-  cursor: pointer;
   height: $hover-tile-height;
   width: $hover-tile-height;
   margin-bottom: $base-line-height;
@@ -29,6 +28,7 @@
   .hover-tile-container {
     height: $hover-tile-height;
     overflow: hidden;
+    cursor: pointer;
   }
 
   .hover-tile-container:hover > .hover-tile {

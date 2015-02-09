@@ -15,7 +15,7 @@
 
     <ul class="current-track">
       {{#if currentTrackUri }}
-        {{ spotify-track data=currentTrackData }}
+        {{ spotify-track data=currentTrackData queueable=false}}
       {{/if}}
     </ul>
 

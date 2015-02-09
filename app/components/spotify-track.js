@@ -2,8 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   tagName: "li",
+  queueable: true,
   name: Ember.computed.alias("data.name"),
   duration: Ember.computed.alias("data.duration_ms"),
+
   style: function() {
     return `background-image: url(${ this.get("image")})`;
   }.property("image"),
