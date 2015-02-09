@@ -1,23 +1,23 @@
 <header class="navigation" role="banner">
   <div class="navigation-wrapper">
-    <a href="javascript:void(0)" class="logo">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">
-    </a>
-    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
-        <li class="nav-link"><a href="javascript:void(0)">Products</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">About Us</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
+        <li class="nav-link">
+          {{#if playing}}
+            <button class="ion-pause" {{ action "pause"}}></button>
+          {{else}}
+            <button class="ion-play" {{ action "play"}}></button>
+          {{/if}}
+          <button class="ion-ios-skipforward" {{ action "next"}}></button>
+          <button class="ion-shuffle" {{ action "shuffle"}}></button>
+        </li>
       </ul>
     </nav>
     <div class="navigation-tools">
       <div class="search-bar">
         <form {{action "search"}} class="form">
           {{input value=query type="search" placeholder="Enter Search" }}
-          <button type="submit">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
-          </button>
+          <button type="submit" class="ion-search"></button>
         </form>
       </div>
     </div>

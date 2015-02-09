@@ -110,6 +110,17 @@ header.navigation {
       margin: 0;
       padding: 0;
     }
+
+    button {
+      @include button(flat, $navigation-search-background);
+      display: inline;
+      float: left;
+      font-size: 0.8em;
+      margin-top: 1em;
+      padding: 0.75em 1em;
+      text-transform: uppercase;
+    }
+
   }
 
 
@@ -287,17 +298,6 @@ header.navigation {
       float: right;
     }
   }
-
-  .sign-up {
-    @include button(flat, $base-accent-color);
-    display: inline;
-    float: right;
-    font-size: 0.8em;
-    margin-top: 1em;
-    padding: 0.75em 1em;
-    text-transform: uppercase;
-  }
-
 
 // Search bar
 
