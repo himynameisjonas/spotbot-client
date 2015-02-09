@@ -39,8 +39,5 @@ export default Ember.Controller.extend({
     next: function(){
       this.get("ref").child("player/next").set(true);
     },
-    shuffle: function(){
-
-    },
   }
 });
