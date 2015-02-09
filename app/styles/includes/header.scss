@@ -78,11 +78,9 @@ header.navigation {
     max-height: $navigation-height;
     padding-left: $navigation-padding;
     padding-right: 2em;
+    padding-top: $navigation-padding;
 
-    img {
-      max-height: $navigation-height;
-      padding: 0.8em 0;
-    }
+    color: white;
   }
 
 
