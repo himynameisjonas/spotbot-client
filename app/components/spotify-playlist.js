@@ -8,19 +8,24 @@ export default Ember.Component.extend({
 
   fetchSpotifyData: function(){
     var array = this.get("spotifyIds");
-    var i,j,temparray,chunk = 50;
-    for (i=0,j=array.length; i<j; i+=chunk) {
-      temparray = array.slice(i,i+chunk);
-      Ember.$.get("https://api.spotify.com/v1/tracks/", {ids: temparray.join(",")}).then((data)=> {
-        this.get("tracksData").pushObjects(data.tracks);
-      });
+    if (!Ember.isEmpty(array)) {
+      var i,j,temparray,chunk = 50;
+      for (i=0,j=array.length; i<j; i+=chunk) {
+        temparray = array.slice(i,i+chunk);
+        Ember.$.get("https://api.spotify.com/v1/tracks/", {ids: temparray.join(",")}).then((data)=> {
+          this.get("tracksData").pushObjects(data.tracks);
+        });
+      }
     }
   }.observes("data.tracks.[]"),
 
   spotifyIds: function(){
-    return this.get("data.tracks").map(function(item){
-      return item.split(":").slice(-1)[0];
-    });
+    var tracks = this.get("data.tracks");
+    if (!Ember.isEmpty(tracks)) {
+      return tracks.map(function(item){
+        return item.split(":").slice(-1)[0];
+      });
+    }
   }.property("data.tracks.[]"),
 
   ref: function(){
