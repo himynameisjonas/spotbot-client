@@ -38,7 +38,7 @@ export default Ember.Controller.extend({
         this.set("currentTrackData", data);
       });
     }
-  }.observes("spotifyId"),
+  }.observes("currentTrackUri"),
 
   ref: function(){
     return this.store.adapterFor("application").get("_ref");
