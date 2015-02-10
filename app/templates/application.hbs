@@ -24,7 +24,7 @@
 
     <div class="navigation-tools">
       <div class="search-bar">
-        <form {{action "search"}} class="form">
+        <form {{action "search" on="submit"}} class="form">
           {{input value=query type="search" placeholder="Enter Search" }}
           <button type="submit" class="ion-search"></button>
         </form>
