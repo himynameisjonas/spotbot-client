@@ -17,8 +17,10 @@
     </nav>
 
     <ul class="current-track">
-      {{#if currentTrackUri }}
+      {{#if currentTrackData }}
         {{ spotify-track data=currentTrackData queueable=false}}
+      {{else}}
+        <li><em>No track</em></li>
       {{/if}}
     </ul>
 

@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
   query: null,
   playing: false,
   currentTrackUri: null,
-  currentTrackData: {},
+  currentTrackData: null,
 
   init: function(){
     this.get("playingRef").on("value", (data)=>{
@@ -21,14 +21,24 @@ export default Ember.Controller.extend({
   },
 
   spotifyId: function(){
-    return this.get("currentTrackUri").split(":").slice(-1)[0];
+    var uri = this.get("currentTrackUri");
+    if (Ember.isEmpty(uri)) {
+      return null;
+    } else {
+      return this.get("currentTrackUri").split(":").slice(-1)[0];
+    }
   }.property("currentTrackUri"),
 
   fetchSpotifyData: function(){
-    Ember.$.get("https://api.spotify.com/v1/tracks/" + this.get("spotifyId")).then((data)=> {
-      this.set("currentTrackData", data);
-    });
-  }.observes("currentTrackUri"),
+    var id = this.get("spotifyId");
+    if (Ember.isEmpty(id)) {
+      this.set("currentTrackData", null);
+    } else {
+      Ember.$.get("https://api.spotify.com/v1/tracks/" + this.get("spotifyId")).then((data)=> {
+        this.set("currentTrackData", data);
+      });
+    }
+  }.observes("spotifyId"),
 
   ref: function(){
     return this.store.adapterFor("application").get("_ref");
