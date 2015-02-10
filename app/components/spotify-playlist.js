@@ -37,6 +37,8 @@ export default Ember.Component.extend({
     newPlaylist: function(){
       var uri = this.get("newPlaylistUri");
       if (!Ember.isEmpty(uri)) {
+        this.get("ref").child("playlist/tracks").remove();
+        this.get("ref").child("playlist/name").set("Loading...");
         this.get("ref").child("playlist/uri").set(uri);
       }
     },
