@@ -15,8 +15,12 @@ section.playlist, {
       float: left;
       margin-right: 10px;
     }
+
     .info {
       float: left;
+      a {
+        display: block;
+      }
     }
   }
 }
