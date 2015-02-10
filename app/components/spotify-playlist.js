@@ -7,6 +7,7 @@ export default Ember.Component.extend({
   uri: Ember.computed.alias("data.uri"),
 
   fetchSpotifyData: function(){
+    this.set("tracksData", []);
     var array = this.get("spotifyIds");
     if (!Ember.isEmpty(array)) {
       var i,j,temparray,chunk = 50;
