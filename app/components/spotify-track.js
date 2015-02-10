@@ -22,7 +22,8 @@ export default Ember.Component.extend({
     if (Ember.isEmpty(this.get("data.album.images"))) {
       return "http://freemusicarchive.org/img/generic/album-default-lp-transparent.png?method=crop&width=155&height=155";
     } else {
-      return this.get("data.album.images")[1].url;
+      var image = this.get("data.album.images")[1] || this.get("data.album.images")[0];
+      return image.url;
     }
   }.property("data.album.images.@each.url"),
 
