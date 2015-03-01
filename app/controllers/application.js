@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
       }
     });
 
-    this.get("ref").child("player/current_track").on("value", (data)=>{
+    this.get("ref").child("player/current_track/uri").on("value", (data)=>{
       this.set("currentTrackUri", data.val());
     });
   },
