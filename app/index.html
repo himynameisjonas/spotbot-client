@@ -7,24 +7,20 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{BASE_TAG}}
+    {{content-for 'head'}}
 
     <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/spotbot-player.css">
-    <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/AppIcon29x29.png" rel="icon" type="image/png" />
-    <link href="/AppIcon76x76.png" rel="apple-touch-icon" />
-    <link href="/AppIcon76x76.png" rel="apple-touch-icon" sizes="76x76" />
-    <link href="/AppIcon76x76@2x.png" rel="apple-touch-icon" sizes="152x152" />
+    <link rel="stylesheet" href="assets/spotbot-client.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    {{content-for 'head-footer'}}
   </head>
   <body>
+    {{content-for 'body'}}
+
     <script src="assets/vendor.js"></script>
-    <script src="assets/spotbot-player.js"></script>
-    <script>
-      window.SpotbotClientENV = require('spotbot-player/config/environment')['default'];
-      window.EmberENV = window.SpotbotClientENV.EmberENV;
-      window.SpotbotClient = require('spotbot-player/app')['default'].create(SpotbotClientENV.APP);
-    </script>
+    <script src="assets/spotbot-client.js"></script>
+
+    {{content-for 'body-footer'}}
   </body>
 </html>

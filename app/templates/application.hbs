@@ -1,55 +1,45 @@
-<div id="top-bar">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
-        {{#link-to "application" classNames="topbar-brand"}}
-          <img src="/AppIcon76x76@2x.png">
-          <span class="hidden-xs">Spotbot</span>
-        {{/link-to}}
+<header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    {{#link-to 'application' class="logo"}}
+      <i class="ion-headphone"></i> Spotbot
+    {{/link-to}}
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <li class="nav-link">
+          {{#if playing}}
+            <button class="ion-pause" {{ action "pause"}}></button>
+          {{else}}
+            <button class="ion-play" {{ action "play"}}></button>
+          {{/if}}
+          <button class="ion-ios-skipforward" {{ action "next"}}></button>
+        </li>
+      </ul>
+    </nav>
 
-        <div class="btn-group pull-right topbar-controls">
-          <button {{action 'play'}}class="btn btn-default "><i class=" fa fa-play"></i></button>
-          <button {{action 'pause'}}class="btn btn-default "><i class=" fa fa-pause"></i></button>
-          <button {{action 'next'}}class="btn btn-default "><i class=" fa fa-step-forward"></i></button>
-          <button {{action 'random'}} {{bind-attr class=":btn :btn-default isShuffle:active"}}>
-            <i {{bind-attr class=":fa isChangingShuffle:fa-spin isChangingShuffle:fa-spinner:fa-random"}}></i>
-          </button>
-        </div>
-      </div>
+    <ul class="current-track">
+      {{#if currentTrackData }}
+        {{ spotify-track data=currentTrackData queueable=false}}
+      {{else}}
+        <li><em>No track</em></li>
+      {{/if}}
+    </ul>
 
-      <div class="col-xs-12 col-sm-2">
-        <div class="topbar-form">
-          <div class="form-group">
-            {{input class="" value=displayVolume type='range' min="0" max="100"}}
-          </div>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-3 col-md-4">
-        {{outlet "current-track"}}
-      </div>
-
-      <div class="col-xs-12 col-sm-2 col-lg-3 topbar-form" role="search">
-        <div class="form-group">
-          {{input class="form-control form-block" value=query placeholder="Search…" action='search'}}
-        </div>
+    <div class="navigation-tools">
+      <div class="search-bar">
+        <form {{action "search" on="submit"}} class="form">
+          {{input value=query type="search" placeholder="Enter Search" }}
+          <button type="submit" class="ion-search"></button>
+        </form>
       </div>
     </div>
   </div>
+</header>
+
+<div id="container">
+  {{outlet}}
 </div>
 
-<div id="content" class="container">
-  {{#if ajaxError}}
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="alert alert-warning" role="alert">
-          <button {{action 'closeAlert'}} type="button" class="close">&times;</button>
-          <strong>Sorry!</strong> Could not connect to the player.
-        </div>
-      </div>
-    </div>
-  {{/if}}
-
-  {{outlet}}
+<div id="footer">
+  Build with <em><span>love</span></em> by <a href="http://himynameisjonas.net">Jonas Brusman</a>
 </div>
 

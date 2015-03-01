@@ -2,6 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
+    modulePrefix: 'spotbot-client',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -20,21 +21,27 @@ module.exports = function(environment) {
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
-    ENV.APP.LOG_ACTIVE_GENERATION = true;
+    // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.SPOTBOT_HOST = "http://localhost:3031"
+    // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.FIREBASE_URL = "https://spotobot-dev.firebaseio.com"
   }
 
   if (environment === 'test') {
-    ENV.baseURL = '/'; // Testem prefers this...
+    // Testem prefers this...
+    ENV.baseURL = '/';
+    ENV.locationType = 'none';
+
+    // keep test console output quieter
+    ENV.APP.LOG_ACTIVE_GENERATION = false;
+    ENV.APP.LOG_VIEW_LOOKUPS = false;
+
+    ENV.APP.rootElement = '#ember-testing';
   }
 
   if (environment === 'production') {
     ENV.FIREBASE_URL = process.env.FIREBASE_URL
-    ENV.SPOTBOT_HOST = process.env.SPOTBOT_HOST
   }
 
   return ENV;

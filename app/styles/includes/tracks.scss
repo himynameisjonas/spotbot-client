@@ -1,0 +1,26 @@
+section.queue,
+section.tracks,
+section.albums,
+section.playlist, {
+  @include span-columns(6);
+
+  ol {
+    li {
+      clear: both;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    img {
+      width: 80px;
+      float: left;
+      margin-right: 10px;
+    }
+
+    .info {
+      float: left;
+      a {
+        display: block;
+      }
+    }
+  }
+}

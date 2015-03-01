@@ -1,0 +1,18 @@
+<div class="hover-tile-outer" {{bind-attr style="style"}} {{action "enqueue"}}>
+  <div class="hover-tile-container">
+    <div class="hover-tile hover-tile-visible"></div>
+    <div class="hover-tile hover-tile-hidden">
+      <h4>Set as Playlist</h4>
+    </div>
+  </div>
+</div>
+<div class="info">
+  <strong>{{name}}</strong>
+  <small>{{released}}</small>
+  <br>
+  {{#each artist in artists}}
+    {{#link-to "search" artist.search}}
+      {{artist.name}}
+    {{/link-to}}
+  {{/each}}
+</div>

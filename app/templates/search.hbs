@@ -1,47 +1,17 @@
+<section class="tracks">
+  <h1>Tracks</h1>
+  <ol>
+  {{#each track in tracks}}
+    {{spotify-track data=track store=store}}
+  {{/each}}
+  </ol>
+</section>
 
-<div class="row">
-  <div class="col-xs-12">
-    <h3>Search result</h3>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-sm-6">
-    <h4>Tracks</h4>
-    <ul class="media-list">
-      {{#each track in tracks}}
-        {{spotify-track track=track collection=tracks canEnqueue=true}}
-      {{else}}
-        <em>No tracks found</em>
-      {{/each}}
-    </ul>
-  </div>
-  <div class="col-xs-12 col-sm-6">
-    <h4>Albums</h4>
-    <ul class="media-list">
-      {{#each album in albums itemController='album'}}
-        <li {{bind-attr class=":media :album album.removing:removing"}}>
-          <div {{action 'enqueue'}} {{bind-attr class=":album-cover :pull-left album.enqueueing:enqueueing"}}>
-            <img class="media-object" {{bind-attr src=album.imageUrl}}>
-            <div class="enqueue">
-              <i {{bind-attr class=":fa :fa-plus album.enqueueing:fa-spin"}}></i>
-            </div>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">{{album.name}} <small>{{album.releaseYear}}</small></h4>
-            <p>
-              <strong>{{album.artistNames}}</strong><br>
-              <a href="#" {{action 'toggleTracks'}}>{{album.numberOfTracks}} tracks</a>
-            </p>
-            {{#if album.showTracks}}
-              {{#each track in album.tracks.items}}
-                {{spotify-track track=track collection=album.tracks.items canEnqueue=true tagName='div' imageUrl=album.imageUrl}}
-              {{/each}}
-            {{/if}}
-          </div>
-        </li>
-      {{else}}
-        <em>No albums found</em>
-      {{/each}}
-    </ul>
-  </div>
-</div>
+<section class="albums">
+  <h1>Albums</h1>
+  <ol>
+  {{#each album in albums}}
+    {{spotify-album data=album store=store}}
+  {{/each}}
+  </ol>
+</section>

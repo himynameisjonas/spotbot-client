@@ -1,15 +1,19 @@
-<div class="album-cover pull-left" {{action 'enqueue'}}>
-  <img class="media-object" {{bind-attr src=imageUrl}}>
-  {{#if canEnqueue}}
-    <div class="enqueue">
-      <i {{bind-attr class=":fa :fa-plus enqueueing:fa-spin"}}></i>
+<div class="hover-tile-outer" {{bind-attr style="style"}} {{action "enqueue"}}>
+  {{#if queueable}}
+    <div class="hover-tile-container">
+      <div class="hover-tile hover-tile-visible"></div>
+      <div class="hover-tile hover-tile-hidden">
+        <h4>Add to Queue</h4>
+      </div>
     </div>
   {{/if}}
 </div>
-<div class="media-body">
-  <h4 class="media-heading">{{title}} <small>{{seconds-to-time duration}}</small></h4>
-  <p>
-    <strong>{{artistNames}}</strong><br/>
-    {{albumTitle}}<br/>
-  </p>
+<div class="info">
+  <strong>{{name}}</strong>
+  <small>{{seconds-to-time duration}}</small>
+  {{#each artist in artists}}
+    {{#link-to "search" artist.search}}
+      {{artist.name}}
+    {{/link-to}}
+  {{/each}}
 </div>
