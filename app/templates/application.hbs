@@ -12,6 +12,8 @@
             <button class="ion-play" {{ action "play"}}></button>
           {{/if}}
           <button class="ion-ios-skipforward" {{ action "next"}}></button>
+
+          <button {{bind-attr class=":ion-shuffle shuffle:active"}} {{ action "shuffle"}}></button>
         </li>
       </ul>
     </nav>

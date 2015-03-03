@@ -163,6 +163,13 @@ header.navigation {
       width: 35px;
       text-align: center;
       text-transform: uppercase;
+      &.active {
+        background-color: $base-accent-color;
+        &:hover,
+        &:focus {
+          background-color: $base-accent-color;
+        }
+      }
     }
 
   }
