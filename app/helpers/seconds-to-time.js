@@ -2,6 +2,11 @@ import Ember from 'ember';
 
 export function secondsToTime(input) {
   input = parseInt(input, 10) / 1000;
+
+  if (isNaN(input)) {
+    return "";
+  }
+
   var minutes = Math.floor(input / 60);
   var seconds = Math.floor(input - (minutes * 60));
 

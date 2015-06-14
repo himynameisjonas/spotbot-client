@@ -1,18 +1,30 @@
-<div class="hover-tile-outer" {{bind-attr style="style"}} {{action "enqueue"}}>
-  <div class="hover-tile-container">
-    <div class="hover-tile hover-tile-visible"></div>
-    <div class="hover-tile hover-tile-hidden">
-      <h4>Set as Playlist</h4>
-    </div>
+{{#md-list-item class="md-3-line"}}
+  <img class="md-avatar" src="{{image}}" alt="{{name}}">
+  <div class="md-list-item-text">
+    <h3>{{name}}</h3>
+    {{#each artists as |artist|}}
+      {{#link-to "search" artist.search}}
+        <h4>{{artist.name}}</h4>
+      {{/link-to}}
+    {{/each}}
+    <p>{{tracks.length}} tracks {{log data}}</p>
+
+    {{#if showTracks}}
+      {{#md-list}}
+        {{#each tracks as |track|}}
+          {{#spotify-track data=track queueable=false as |track|}}
+            {{track-list-item track=track image=image}}
+          {{/spotify-track}}
+        {{/each}}
+      {{/md-list}}
+    {{/if}}
   </div>
-</div>
-<div class="info">
-  <strong>{{name}}</strong>
-  <small>{{released}}</small>
-  <br>
-  {{#each artist in artists}}
-    {{#link-to "search" artist.search}}
-      {{artist.name}}
-    {{/link-to}}
-  {{/each}}
-</div>
+  {{#md-button action="showTracks" class="md-thirdly md-fab md-mini md-accent"}}
+    {{md-icon mdFontIcon="mdi mdi-list"}}
+  {{/md-button}}
+  {{#if queueable}}
+    {{#md-button action="enqueue" class="md-secondary md-fab md-mini md-accent"}}
+      {{md-icon mdFontIcon="mdi mdi-playlist-add"}}
+    {{/md-button}}
+  {{/if}}
+{{/md-list-item}}

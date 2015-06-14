@@ -1,0 +1,17 @@
+{{#md-list-item class="md-3-line"}}
+  <img class="md-avatar" src="{{if image image track.image}}" alt="{{track.name}}">
+  <div class="md-list-item-text">
+    <h3>{{track.name}}</h3>
+    {{#each track.artists as |artist|}}
+      {{#link-to "search" artist.search}}
+        <h4>{{artist.name}}</h4>
+      {{/link-to}}
+    {{/each}}
+    <p>{{seconds-to-time track.duration}}</p>
+    {{#if queueable}}
+      {{#md-button action="enqueue" class="md-secondary md-fab md-mini md-accent"}}
+        {{md-icon mdFontIcon="mdi mdi-queue"}}
+      {{/md-button}}
+    {{/if}}
+  </div>
+{{/md-list-item}}

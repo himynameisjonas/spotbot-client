@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   newPlaylistUri: null,
   name: null,
   uri: null,
+  store: Ember.inject.service,
 
   ref: function(){
     return this.store.adapterFor("application").get("_ref");

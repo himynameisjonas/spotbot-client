@@ -1,8 +1,7 @@
-{{input value=newPlaylistUri placeholder="Paste a playlist's URI" action="newPlaylist"}}
-
-<h2 {{bind-attr title=uri}}>{{ name }}</h2>
-<ol>
-{{#each track in tracksData}}
-  {{spotify-track data=track queueable=false}}
-{{/each}}
-</ol>
+{{#md-list}}
+  {{#each tracksData as |playlistTrack|}}
+    {{#spotify-track data=playlistTrack queueable=false as |track|}}
+      {{track-list-item track=track queueable=false}}
+    {{/spotify-track}}
+  {{/each}}
+{{/md-list}}

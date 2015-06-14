@@ -1,47 +1,57 @@
-<header class="navigation" role="banner">
-  <div class="navigation-wrapper">
-    {{#link-to 'application' class="logo"}}
-      <i class="ion-headphone"></i> Spotbot
-    {{/link-to}}
-    <nav role="navigation">
-      <ul id="js-navigation-menu" class="navigation-menu show">
-        <li class="nav-link">
-          {{#if playing}}
-            <button class="ion-pause" {{ action "pause"}}></button>
-          {{else}}
-            <button class="ion-play" {{ action "play"}}></button>
-          {{/if}}
-          <button class="ion-ios-skipforward" {{ action "next"}}></button>
+<md-content>
+  {{#md-toolbar class="topbar"}}
+    <div class="md-toolbar-tools" layout-wrap>
+      <h1>
+        {{link-to "Spotbot" "application" }}
+      </h1>
+      <div class="md-button-group">
+        {{#if playing}}
+          {{#md-button class="md-icon-button" action="pause"}}
+            <md-icon>{{material-design-icon name='pause'}}</md-icon>
+          {{/md-button}}
+        {{else}}
+          {{#md-button class="md-icon-button" action="play"}}
+            <md-icon>{{material-design-icon name='play-arrow'}}</md-icon>
+          {{/md-button}}
+        {{/if}}
 
-          <button {{bind-attr class=":ion-shuffle shuffle:active"}} {{ action "shuffle"}}></button>
-        </li>
-      </ul>
-    </nav>
-
-    <ul class="current-track">
-      {{#if currentTrackData }}
-        {{ spotify-track data=currentTrackData queueable=false}}
-      {{else}}
-        <li><em>No track</em></li>
-      {{/if}}
-    </ul>
-
-    <div class="navigation-tools">
-      <div class="search-bar">
-        <form {{action "search" on="submit"}} class="form">
-          {{input value=query type="search" placeholder="Enter Search" }}
-          <button type="submit" class="ion-search"></button>
-        </form>
+        {{#md-button class="md-icon-button" action="next"}}
+          <md-icon>{{material-design-icon name='skip-next'}}</md-icon>
+        {{/md-button}}
+        {{#md-button class="md-icon-button" action="shuffle"}}
+          <md-icon class="{{if shuffle 'md-accent'}}">{{material-design-icon name='shuffle'}}</md-icon>
+        {{/md-button}}
       </div>
+      <span flex></span>
+      <h2>
+        {{#if currentTrackData }}
+          {{#spotify-track data=currentTrackData as |track|}}
+            {{track.name}} – {{track.artistNames}}
+          {{/spotify-track}}
+        {{else}}
+          <em>No track</em>
+        {{/if}}
+      </h2>
+      <span flex></span>
     </div>
+  {{/md-toolbar}}
+</md-content>
+
+<md-content ng-view="" md-scroll-y="" flex="" layout-padding="" class="md-default-theme">
+  <div layout="row" layout-sm="column" layout-margin>
+    <section flex class="search md-whiteframe-z3" layout="column">
+      <md-content class="md-padding" layout="row" layout-sm="column">
+
+        {{#md-input-container flex="" value=query}}
+          <label>
+            <md-icon>{{material-design-icon name='search'}}</md-icon>
+            Search
+          </label>
+          {{md-input }}
+        {{/md-input-container}}
+      </md-content>
+    </section>
   </div>
-</header>
 
-<div id="container">
   {{outlet}}
-</div>
-
-<div id="footer">
-  Build with <em><span>love</span></em> by <a href="http://himynameisjonas.net">Jonas Brusman</a>
-</div>
-
+</md-content>

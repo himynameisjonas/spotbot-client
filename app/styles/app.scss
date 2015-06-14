@@ -1,33 +1,122 @@
-@import "bourbon";
-@import "bower_components/neat/app/assets/stylesheets/neat";
-@import "base/base";
+$primary: "cyan";
+$accent: "cyan";
 
-@import "includes/header";
-@import "includes/tracks";
-@import "includes/hover";
+@import "ember-material-design";
 
-body {
-  margin: 0;
+.mdi {
+  font-size: 28px;
 }
 
-#container {
-  @include outer-container;
-  margin-top: 20px;
-}
+md-toolbar {
+  &, md-icon {
+    color: #fff;
+  }
+  .md-toolbar-tools .md-button {
+    margin: 0;
+    padding: 0 6px;
+  }
 
-#footer {
-  text-align: center;
-  margin: $base-spacing;
-
-  em {
-    span {
-      display: none;
-    }
-    &:after {
-      content: "\f442";
-      color: #c00133;
-      font-family: "Ionicons";
-      font-style: normal;
-    }
+  h1 {
+    min-width: 3.6em;
   }
 }
+
+.md-toolbar-tools {
+  .md-button-group {
+    min-width: 6em;
+  }
+
+  md-icon {
+    height: 35px;
+    &.md-accent {
+      color: color($primary, "A100");
+    }
+  }
+
+  input {
+    flex: 1;
+  }
+
+  h2 {
+    flex: 1 0 50%;
+    div {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  h3 {
+    .mdi {
+      line-height: 1.2em;
+    }
+  }
+
+  h3,h4 {
+    white-space: nowrap;
+  }
+
+  h4 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  h4, input, label {
+    margin-left: 1em;
+  }
+}
+
+
+section {
+  min-height: 10em;
+
+  margin-bottom: 1em;
+  &.search {
+    min-height: 0;
+  }
+}
+
+md-input-container {
+  flex: 1;
+}
+
+md-list-item {
+  .md-secondary {
+    top: 31px;
+  }
+  md-list-item .md-secondary {
+    right: 0;
+  }
+  .md-thirdly {
+    right: 63px;
+  }
+}
+
+.md-thirdly {
+  @extend .md-secondary;
+}
+
+.md-button.md-accent.md-fab {
+  background-color: color($accent, "A200");
+  &:not([disabled]) md-icon {
+    color: #fff;
+  }
+}
+
+  @media all and (max-width: 640px) {
+    .topbar {
+      .md-toolbar-tools {
+        flex-direction: column;
+        height: 158px;
+        max-height: none;
+
+        h1 {
+          margin: 10px 0 0 0;
+        }
+        h2 {
+          flex: 1;
+        }
+      }
+    }
+  }
+

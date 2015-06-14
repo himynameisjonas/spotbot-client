@@ -16,5 +16,10 @@ export default Ember.Route.extend({
         });
       }
     });
+  },
+  actions: {
+    enqueue: function(uri){
+      this.store.createRecord("queued-track", {uri: uri}).save();
+    },
   }
 });

@@ -1,17 +1,37 @@
-<section class="tracks">
-  <h1>Tracks</h1>
-  <ol>
-  {{#each track in tracks}}
-    {{spotify-track data=track store=store}}
-  {{/each}}
-  </ol>
-</section>
+<div layout="row" layout-sm="column" layout-margin>
+  <section flex class="md-whiteframe-z1" layout="column">
+    {{#md-toolbar class="md-accent"}}
+      <div class="md-toolbar-tools">
+        <h3>
+          <md-icon>{{material-design-icon name='audiotrack'}}</md-icon>
+          Tracks
+        </h3>
+      </div>
+    {{/md-toolbar}}
 
-<section class="albums">
-  <h1>Albums</h1>
-  <ol>
-  {{#each album in albums}}
-    {{spotify-album data=album store=store}}
-  {{/each}}
-  </ol>
-</section>
+    {{#md-list}}
+      {{#each tracks as |track|}}
+        {{#spotify-track data=track queueable=false as |track|}}
+          {{track-list-item track=track}}
+        {{/spotify-track}}
+      {{/each}}
+    {{/md-list}}
+  </section>
+
+  <section flex class="md-whiteframe-z1" layout="column">
+    {{#md-toolbar class="md-accent"}}
+      <div class="md-toolbar-tools">
+        <h3>
+          <md-icon>{{material-design-icon name='album'}}</md-icon>
+          Album
+        </h3>
+      </div>
+    {{/md-toolbar}}
+
+    {{#md-list}}
+      {{#each albums as |album|}}
+        {{spotify-album data=album store=store}}
+      {{/each}}
+    {{/md-list}}
+  </section>
+</div>

@@ -1,9 +1,12 @@
 import Ember from "ember";
 
 export default Ember.Component.extend({
-  tagName: "li",
   name: Ember.computed.alias("data.name"),
   uri: Ember.computed.alias("data.uri"),
+  store: Ember.inject.service(),
+  queueable: true,
+  showTracks: false,
+
   style: function() {
     return `background-image: url(${ this.get("image")})`;
   }.property("image"),
@@ -31,13 +34,21 @@ export default Ember.Component.extend({
     }
   }.property("data.images.@each.url"),
 
+  tracks: function(){
+    return this.get('data.tracks.items');
+  }.property('data.tracks.items.[]'),
+
   ref: function(){
-    return this.store.adapterFor("application").get("_ref");
+    return this.get('store').adapterFor("application").get("_ref");
   }.property("store"),
 
   actions: {
     enqueue: function(){
       this.get("ref").child("playlist/uri").set(this.get("uri"));
-    }
+      this.set("queueable", false);
+    },
+    showTracks: function(){
+      this.toggleProperty("showTracks");
+    },
   }
 });
