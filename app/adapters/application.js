@@ -1,8 +1,7 @@
-/* globals Firebase */
-import DS from 'ember-data';
-import config from 'spotbot-client/config/environment';
+import config from '../config/environment';
+import Firebase from 'firebase';
+import FirebaseAdapter from 'emberfire/adapters/firebase';
 
-
-export default DS.FirebaseAdapter.extend({
-  firebase: new Firebase(config.FIREBASE_URL)
+export default FirebaseAdapter.extend({
+  firebase: new Firebase(config.firebase)
 });

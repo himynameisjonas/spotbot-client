@@ -4,6 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'spotbot-client',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    firebase: 'https://spotobot-dev.firebaseio.com',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -25,7 +27,6 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.FIREBASE_URL = "https://spotobot-dev.firebaseio.com"
   }
 
   if (environment === 'test') {
@@ -41,7 +42,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.FIREBASE_URL = process.env.FIREBASE_URL
+    ENV.firebase = process.env.FIREBASE_URL
   }
 
   return ENV;
