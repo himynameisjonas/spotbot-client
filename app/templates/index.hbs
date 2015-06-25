@@ -29,7 +29,7 @@
         {{#if changePlaylist}}
           {{#md-input-container flex="" value=newPlaylistUri}}
             <label>Playlist URI</label>
-            {{md-input }}
+            {{md-input action="newPlaylist"}}
           {{/md-input-container}}
         {{else}}
           <h4>{{playlistName}}</h4>

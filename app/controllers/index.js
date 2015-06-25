@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
   playlistUri: Ember.computed.alias("controllers.application.playlistUri"),
   playlistTracks: Ember.computed.alias("controllers.application.playlistTracks"),
   playlistTracksData: Ember.computed.alias("controllers.application.playlistTracksData"),
+  newPlaylistUri: null,
 
   ref: function(){
     return this.store.adapterFor("application").get("_ref");
