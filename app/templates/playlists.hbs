@@ -10,8 +10,7 @@
     {{/md-toolbar}}
 
     {{#md-list}}
-      {{#each model as |playlist|}}
-        {{log playlist}}
+      {{#each model key="@index" as |playlist|}}
         {{#md-list-item class="md-3-line"}}
           <img class="md-avatar" src="{{playlist.image}}" alt="{{playlist.name}}">
           <div class="md-list-item-text">
