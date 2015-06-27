@@ -5,13 +5,22 @@ module.exports = function(environment) {
     modulePrefix: 'spotbot-client',
     environment: environment,
     contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
-    firebase: 'https://spotobot-dev.firebaseio.com',
+    firebase: process.env.FIREBASE_URL,
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
+      }
+    },
+
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+        'spotify': {
+          apiKey: process.env.SPOTIFY_API_KEY,
+        }
       }
     },
 
@@ -42,7 +51,6 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.firebase = process.env.FIREBASE_URL
   }
 
   return ENV;

@@ -33,6 +33,19 @@
         {{/if}}
       </h2>
       <span flex></span>
+      <span flex>
+        {{#if session.isWorking}}
+          One sec while we get you signed in...
+        {{else}}
+          {{#if session.isAuthenticated}}
+            signed in as {{session.currentUser.display_name}}
+          {{else}}
+            <a href="#" {{action 'signInViaSpotify'}}>
+              Sign In with Spotify
+            </a>
+          {{/if}}
+        {{/if}}
+      </span>
     </div>
   {{/md-toolbar}}
 </md-content>
