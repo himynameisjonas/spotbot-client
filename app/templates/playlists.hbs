@@ -1,0 +1,31 @@
+<div layout="row" layout-sm="column" layout-margin>
+  <section flex class="md-whiteframe-z1" layout="column">
+    {{#md-toolbar class="md-accent"}}
+      <div class="md-toolbar-tools">
+        <h3>
+          <md-icon>{{material-design-icon name='album'}}</md-icon>
+          Playlists
+        </h3>
+      </div>
+    {{/md-toolbar}}
+
+    {{#md-list}}
+      {{#each model as |playlist|}}
+        {{log playlist}}
+        {{#md-list-item class="md-3-line"}}
+          <img class="md-avatar" src="{{playlist.image}}" alt="{{playlist.name}}">
+          <div class="md-list-item-text">
+            <h3>{{playlist.name}}</h3>
+            <p>{{playlist.tracks.total}} tracks</p>
+          </div>
+
+          {{#md-button action="enqueue" param=playlist.uri class="md-secondary md-fab md-mini md-accent"}}
+            {{md-icon mdFontIcon="mdi mdi-playlist-add"}}
+          {{/md-button}}
+        {{/md-list-item}}
+      {{/each}}
+    {{/md-list}}
+  </section>
+</div>
+
+

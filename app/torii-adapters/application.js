@@ -11,7 +11,8 @@ export default Ember.Object.extend({
       });
     }).then(function(user){
       return {
-        currentUser: user
+        accessToken: authentication.authorizationToken.access_token,
+        currentUser: user,
       };
     });
   }
