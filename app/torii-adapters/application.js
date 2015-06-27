@@ -7,9 +7,13 @@ export default Ember.Object.extend({
         url: 'https://api.spotify.com/v1/me',
         headers: {'Authorization': 'Bearer ' + authentication.authorizationToken.access_token },
         success: Ember.run.bind(null, resolve),
-        error: Ember.run.bind(null, reject)
+        error: Ember.run.bind(null, function(error){
+          localStorage.removeItem("hasSpotify");
+          reject(error);
+        })
       });
     }).then(function(user){
+      localStorage.setItem("hasSpotify", true);
       return {
         accessToken: authentication.authorizationToken.access_token,
         currentUser: user,

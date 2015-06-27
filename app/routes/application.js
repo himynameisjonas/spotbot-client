@@ -1,6 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  beforeModel: function(transition){
+    if (localStorage.getItem("hasSpotify")) {
+      return this.get('session').open('spotify')
+    }
+  },
   setupController: function(controller){
     this.controllerFor('index').set('queue', this.store.findAll('queued-track'));
 
